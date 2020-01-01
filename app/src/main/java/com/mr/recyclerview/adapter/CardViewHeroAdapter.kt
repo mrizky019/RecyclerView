@@ -51,14 +51,14 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>) :
         holder.btnFavorite.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Favorite" + listHero[holder.adapterPosition].name,
+                "Favorite : " + listHero[holder.adapterPosition].name,
                 Toast.LENGTH_SHORT
             ).show()
         }
         holder.btnShare.setOnClickListener {
             Toast.makeText(
                 holder.itemView.context,
-                "Share" + listHero[holder.adapterPosition].name,
+                "Share : " + listHero[holder.adapterPosition].name,
                 Toast.LENGTH_SHORT
             ).show()
         }

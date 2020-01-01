@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var rvHeroes: RecyclerView
     private var list: ArrayList<Hero> = arrayListOf()
-    private var title: String = getString(R.string.mode_list)
+    private var title: String = "Mode List"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
