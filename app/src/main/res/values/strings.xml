@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="heroes_name">heroes_name</string>
+    <string name="detail">detail</string>
+    <string name="list">List</string>
+    <string name="Grid">Grid</string>
+    <string name="CardView">Card View</string>
+</resources>
