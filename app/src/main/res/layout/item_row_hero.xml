@@ -22,7 +22,7 @@
         android:layout_toRightOf="@id/imgItemPhoto"
         android:orientation="vertical">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvItemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:textStyle="bold"
             tools:text="@string/heroes_name" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvItemDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -5,8 +5,10 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mr.recyclerview.adapter.GridHeroAdapter
 import com.mr.recyclerview.adapter.ListHeroAdapter
 import com.mr.recyclerview.model.Hero
 import com.mr.recyclerview.model.HeroesData
@@ -27,9 +29,9 @@ class MainActivity : AppCompatActivity() {
         list.addAll(HeroesData.listData)
         showRecyclerList()
 
-//        if (supportActionBar != null) {
-//            (supportActionBar as ActionBar).title = ""
-//        }
+        if (supportActionBar != null) {
+            (supportActionBar as ActionBar).title = getString(R.string.mode_list)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,15 +47,15 @@ class MainActivity : AppCompatActivity() {
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
             R.id.action_list -> {
-
+                showRecyclerList()
             }
 
             R.id.action_grid -> {
-
+                showRecyclerGrid()
             }
 
             R.id.action_cardview -> {
-
+                showCardView()
             }
         }
     }
@@ -62,5 +64,16 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
         rvHeroes.adapter = listHeroAdapter
+    }
+
+    private fun showRecyclerGrid(){
+        (supportActionBar as ActionBar).title = getString(R.string.mode_grid)
+        rvHeroes.layoutManager = GridLayoutManager(this, 2)
+        val gridHeroAdapter = GridHeroAdapter(list)
+        rvHeroes.adapter = gridHeroAdapter
+    }
+
+    private fun showCardView(){
+        (supportActionBar as ActionBar).title = getString(R.string.mode_cardView)
     }
 }
