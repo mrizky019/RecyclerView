@@ -11,10 +11,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.mr.recyclerview.R
 import com.mr.recyclerview.model.Hero
 
-class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
+class ListHeroAdapter(private val listHero: ArrayList<Hero>) :
+    RecyclerView.Adapter<ListHeroAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
+        val view: View =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
         return ListViewHolder(view)
     }
 
@@ -27,7 +29,7 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
 
         Glide.with(holder.itemView.context)
             .load(hero.photo)
-            .apply(RequestOptions().override(55,55))
+            .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
 
         holder.tvName.text = hero.name

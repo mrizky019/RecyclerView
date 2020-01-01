@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerList() {
+        (supportActionBar as ActionBar).title = getString(R.string.mode_list)
         rvHeroes.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
         rvHeroes.adapter = listHeroAdapter

@@ -8,4 +8,6 @@
     <string name="mode_list">Mode List</string>
     <string name="mode_grid">Mode Grid</string>
     <string name="mode_cardView">Mode Card View</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
 </resources>

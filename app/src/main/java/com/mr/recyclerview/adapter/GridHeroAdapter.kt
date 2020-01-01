@@ -10,7 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.mr.recyclerview.R
 import com.mr.recyclerview.model.Hero
 
-class GridHeroAdapter(val listHeroes: ArrayList<Hero>) : RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
+class GridHeroAdapter(private val listHeroes: ArrayList<Hero>) : RecyclerView.Adapter<GridHeroAdapter.GridViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_grid_hero, parent, false)
         return GridViewHolder(view)
