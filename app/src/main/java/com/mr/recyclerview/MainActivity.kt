@@ -3,6 +3,7 @@ package com.mr.recyclerview
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,6 +14,7 @@ import com.mr.recyclerview.adapter.GridHeroAdapter
 import com.mr.recyclerview.adapter.ListHeroAdapter
 import com.mr.recyclerview.model.Hero
 import com.mr.recyclerview.model.HeroesData
+import org.jetbrains.anko.toast
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -68,12 +70,24 @@ class MainActivity : AppCompatActivity() {
         rvHeroes.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(list)
         rvHeroes.adapter = listHeroAdapter
+
+        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Hero) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showRecyclerGrid() {
         rvHeroes.layoutManager = GridLayoutManager(this, 2)
         val gridHeroAdapter = GridHeroAdapter(list)
         rvHeroes.adapter = gridHeroAdapter
+
+        gridHeroAdapter.setOnItemClickCallback(object : GridHeroAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Hero) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showCardView() {
@@ -86,5 +100,9 @@ class MainActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             (supportActionBar as ActionBar).title = title
         }
+    }
+
+    private fun showSelectedHero(hero: Hero) {
+        toast("Kamu memilih : ${hero.name}")
     }
 }
